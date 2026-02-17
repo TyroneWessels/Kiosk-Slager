@@ -35,7 +35,7 @@ function scene:create( event )
     
     -- Title
     local title = display.newText(sceneGroup, "Belegde Broodjes", display.contentWidth * 0.5, 20, native.systemFont, 30)
-    title:setFillColor(0, 0, 0)
+    title:setFillColor(0.9, 0.9, 0.9)
     
     -- Display products
     local startY = 60
@@ -71,7 +71,7 @@ function scene:create( event )
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     cartBtn:setFillColor(0.2, 0.7, 0.2)
-    local cartText = display.newText(sceneGroup, "Afrekenen", display.contentWidth * 0.7, display.contentHeight - 50, native.systemFont, 18)
+    local cartText = display.newText(sceneGroup, "Afrekenen", display.contentWidth * 0.5, display.contentHeight - 50, native.systemFont, 18)
     cartText:setFillColor(1, 1, 1)
     cartBtn:addEventListener("tap", gotoAfrekenen)
     
