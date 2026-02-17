@@ -60,7 +60,7 @@ function scene:create( event )
             nameText.anchorX = 0
             
             -- Item quantity
-            local quantityText = display.newText(sceneGroup, "x" .. item.quantity, display.contentWidth * 0.75, y - 5, native.systemFont, 16)
+            local quantityText = display.newText(sceneGroup, "x" .. item.quantity, display.contentWidth * 0.65, y - 5, native.systemFont, 16)
             quantityText:setFillColor(0, 0, 0)
             quantityText.anchorX = 0
             
