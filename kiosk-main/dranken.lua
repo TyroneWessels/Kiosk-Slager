@@ -36,16 +36,17 @@ function scene:create( event )
     
     -- Background
     local background = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight * 0.5, display.contentWidth, display.contentHeight)
-    background:setFillColor(1, 1, 1)
+    background:setFillColor(1.0, 0.98, 0.94)
     background:toBack()
     
     -- Title
     local title = display.newText(sceneGroup, "Dranken", display.contentWidth * 0.5, 20, native.systemFont, 30)
-    title:setFillColor(0, 0, 0)
+    title:setFillColor(0.3, 0.2, 0.1)
     
     -- Display products
     local startY = 60
     local itemHeight = 60
+    local selectedButton = nil
     
     for i, product in ipairs(products) do
         local y = startY + (i - 1) * itemHeight
@@ -55,6 +56,7 @@ function scene:create( event )
         productBtn:setFillColor(0.9, 0.9, 0.9)
         productBtn.stroke = 2
         productBtn.strokeColor = {0, 0, 0}
+        productBtn.isSelected = false
         
         -- Product name
         local nameText = display.newText(sceneGroup, product.name, display.contentWidth * 0.15, y - 10, native.systemFont, 18)
@@ -70,6 +72,17 @@ function scene:create( event )
         local name = product.name
         local price = product.price
         productBtn:addEventListener("tap", function()
+            -- Deselect previous button
+            if selectedButton and selectedButton ~= productBtn then
+                selectedButton:setFillColor(0.9, 0.9, 0.9)
+                selectedButton.isSelected = false
+            end
+            
+            -- Select current button
+            productBtn:setFillColor(0.8, 1.0, 0.8)
+            productBtn.isSelected = true
+            selectedButton = productBtn
+            
             addToCart(name, price)
         end)
     end
@@ -82,13 +95,17 @@ function scene:create( event )
     cartBtn:addEventListener("tap", gotoAfrekenen)
     
     -- Back button
-    local terug = display.newText(sceneGroup, "Terug", display.contentWidth * 0.15, display.contentHeight - 50, native.systemFont, 18)
-    terug:setFillColor(1, 1, 1)
+    local terug = display.newRect(sceneGroup, display.contentWidth * 0.15, display.contentHeight - 50, 80, 40)
+    terug:setFillColor(0.7, 0.7, 0.7)
+    local terugText = display.newText(sceneGroup, "Terug", display.contentWidth * 0.15, display.contentHeight - 50, native.systemFont, 18)
+    terugText:setFillColor(1, 1, 1)
     terug:addEventListener("tap", gotocatogorien)
     
     -- Stop button
-    local stoppen = display.newText(sceneGroup, "Stoppen", display.contentWidth * 0.85, display.contentHeight - 50, native.systemFont, 18)
+    local stoppen = display.newRect(sceneGroup, display.contentWidth * 0.85, display.contentHeight - 50, 80, 40)
     stoppen:setFillColor(1, 0, 0)
+    local stoppenText = display.newText(sceneGroup, "Stoppen", display.contentWidth * 0.85, display.contentHeight - 50, native.systemFont, 18)
+    stoppenText:setFillColor(1, 1, 1)
     stoppen:addEventListener("tap", gotostart)
 end
 

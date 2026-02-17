@@ -45,9 +45,35 @@ function cart:clear()
     self.items = {}
 end
 
--- Get all items
+-- Get all items grouped by name
 function cart:getItems()
-    return self.items
+    local grouped = {}
+    local order = {}
+    
+    for _, item in ipairs(self.items) do
+        if not grouped[item.name] then
+            grouped[item.name] = {
+                name = item.name,
+                price = item.price,
+                category = item.category,
+                quantity = 0,
+                id = item.id
+            }
+            table.insert(order, item.name)
+        end
+        grouped[item.name].quantity = grouped[item.name].quantity + 1
+    end
+    
+    local result = {}
+    for _, name in ipairs(order) do
+        table.insert(result, grouped[name])
+    end
+    return result
+end
+
+-- Get count ignoring duplicates
+function cart:getCount()
+    return #self.items
 end
 
 return cart

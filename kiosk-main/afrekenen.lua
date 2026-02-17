@@ -25,16 +25,16 @@ function scene:create( event )
     
     -- Background
     local background = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight * 0.5, display.contentWidth, display.contentHeight)
-    background:setFillColor(1, 1, 1)
+    background:setFillColor(1.0, 0.98, 0.94)
     background:toBack()
     
     -- Title
     local title = display.newText(sceneGroup, "Afrekenen", display.contentWidth * 0.5, 20, native.systemFont, 30)
-    title:setFillColor(0, 0, 0)
+    title:setFillColor(0.3, 0.2, 0.1)
     
     -- Items header
     local itemsHeader = display.newText(sceneGroup, "Jouw bestelling:", display.contentWidth * 0.5, 60, native.systemFont, 22)
-    itemsHeader:setFillColor(0, 0, 0)
+    itemsHeader:setFillColor(0.3, 0.2, 0.1)
     
     -- Display items
     local items = cart:getItems()
@@ -59,8 +59,13 @@ function scene:create( event )
             nameText:setFillColor(0, 0, 0)
             nameText.anchorX = 0
             
+            -- Item quantity
+            local quantityText = display.newText(sceneGroup, "x" .. item.quantity, display.contentWidth * 0.75, y - 5, native.systemFont, 16)
+            quantityText:setFillColor(0, 0, 0)
+            quantityText.anchorX = 0
+            
             -- Item price
-            local priceText = display.newText(sceneGroup, "€" .. string.format("%.2f", item.price), display.contentWidth * 0.9, y - 5, native.systemFont, 16)
+            local priceText = display.newText(sceneGroup, "€" .. string.format("%.2f", item.price * item.quantity), display.contentWidth * 0.9, y - 5, native.systemFont, 16)
             priceText:setFillColor(0, 0, 0.8)
             priceText.anchorX = 1
             
@@ -87,7 +92,7 @@ function scene:create( event )
     divider.width = 2
     
     local totalLabel = display.newText(sceneGroup, "TOTAAL:", display.contentWidth * 0.1, totalY + 15, native.systemFont, 24)
-    totalLabel:setFillColor(0, 0, 0)
+    totalLabel:setFillColor(0.3, 0.2, 0.1)
     totalLabel.anchorX = 0
     
     local totalPrice = display.newText(sceneGroup, "€" .. string.format("%.2f", cart:getTotal()), display.contentWidth * 0.9, totalY + 15, native.systemFont, 28)

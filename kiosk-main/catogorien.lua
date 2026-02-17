@@ -39,12 +39,12 @@ function scene:create( event )
     
     -- Background
     local background = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight * 0.5, display.contentWidth, display.contentHeight)
-    background:setFillColor(1, 1, 1)
+    background:setFillColor(1.0, 0.98, 0.94)
     background:toBack()
     
     -- Title
     local title = display.newText(sceneGroup, "Slagerij - Bestel nu", display.contentWidth * 0.5, 15, native.systemFont, 24)
-    title:setFillColor(0, 0, 0)
+    title:setFillColor(0.3, 0.2, 0.1)
     
     -- Cart info at top
     local cartCount = cart:getCount()
@@ -91,16 +91,16 @@ function scene:create( event )
     drankenText:setFillColor(0, 0, 0)
 
     -- Checkout button
-    local AfrekeningBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 55, 110, 40)
+    local AfrekeningBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     AfrekeningBtn:setFillColor(0.2, 0.7, 0.2)
-    local AfrekeningText = display.newText(sceneGroup, "Afrekenen", display.contentWidth * 0.5, display.contentHeight - 55, native.systemFont, 16)
+    local AfrekeningText = display.newText(sceneGroup, "Afrekenen", display.contentWidth * 0.5, display.contentHeight - 50, native.systemFont, 16)
     AfrekeningText:setFillColor(1, 1, 1)
     AfrekeningBtn:addEventListener("tap", gotoAfrekenen)
 
     -- Stop button
-    local Stoppen = display.newRect(sceneGroup, display.contentWidth * 0.85, display.contentHeight - 55, 75, 40)
+    local Stoppen = display.newRect(sceneGroup, display.contentWidth * 0.85, display.contentHeight - 50, 80, 40)
     Stoppen:setFillColor(1, 0, 0)
-    local StoppenText = display.newText(sceneGroup, "Stoppen", display.contentWidth * 0.85, display.contentHeight - 55, native.systemFont, 14)
+    local StoppenText = display.newText(sceneGroup, "Stoppen", display.contentWidth * 0.85, display.contentHeight - 50, native.systemFont, 14)
     StoppenText:setFillColor(1, 1, 1)
     Stoppen:addEventListener("tap", gotostart)
 
