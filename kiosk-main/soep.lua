@@ -12,6 +12,7 @@ local products = {
 
 local function gotostart()
     cart:clear()
+    composer.removeScene( "soep" )
     composer.removeScene( "start" )
     composer.gotoScene( "start" )
 end

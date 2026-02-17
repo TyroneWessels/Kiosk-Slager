@@ -3,6 +3,8 @@ local scene = composer.newScene()
 local cart = require("cart")
 
 local function gotostart()
+    cart:clear()
+    composer.removeScene( "catogorien" )
     composer.removeScene( "start" )
     composer.gotoScene( "start" )
 end

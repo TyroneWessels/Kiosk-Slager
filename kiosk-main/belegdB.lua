@@ -11,6 +11,8 @@ local products = {
 }
 
 local function gotostart()
+    cart:clear()
+    composer.removeScene( "belegdB" )
     composer.removeScene( "start" )
     composer.gotoScene( "start" )
 end
