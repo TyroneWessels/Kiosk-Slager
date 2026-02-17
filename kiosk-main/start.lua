@@ -15,7 +15,7 @@ function scene:create( event )
     
     -- Background
     local background = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight * 0.5, display.contentWidth, display.contentHeight)
-    background:setFillColor(1.0, 0.98, 0.94)
+    background:setFillColor(0.94, 0.96, 0.98)
     background:toBack()
     
     Begin = display.newText(sceneGroup, "Begin", display.contentWidth * 0.5, display.contentHeight * 0.5, native.systemFont, 40)

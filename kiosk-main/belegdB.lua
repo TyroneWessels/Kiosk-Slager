@@ -5,9 +5,9 @@ local cart = require("cart")
 local products = {
     { name = "Kalkoen broodje", price = 5.50 },
     { name = "Rosbief broodje", price = 6.50 },
-    { name = "Gerookt vlees broodje", price = 6.00 },
+    { name = "broodje makreel", price = 6.00 },
     { name = "Salami broodje", price = 5.00 },
-    { name = "Mixte broodje", price = 6.00 },
+    { name = "broodje kroket", price = 6.00 },
 }
 
 local function gotostart()
@@ -37,7 +37,7 @@ function scene:create( event )
     
     -- Background
     local background = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight * 0.5, display.contentWidth, display.contentHeight)
-    background:setFillColor(1.0, 0.98, 0.94)
+    background:setFillColor(0.94, 0.96, 0.98)
     background:toBack()
     
     -- Title
