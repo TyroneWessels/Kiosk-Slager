@@ -40,30 +40,42 @@ function scene:create( event )
     -- Display items
     local items = cart:getItems()
     
+    -- ScrollView dimensions
+    local scrollViewWidth = display.contentWidth - 40
+    local scrollViewHeight = display.contentHeight - 220
+    local scrollViewLeft = (display.contentWidth - scrollViewWidth) / 2
+    local scrollViewTop = 90
+    
     -- Create scrollView for items
     local scrollView = widget.newScrollView(
     {
-        left = (display.contentWidth - display.contentWidth) / 2,
-        top = 90,
-        width = display.contentWidth,
-        height = display.contentHeight - 140,
-        scrollWidth = display.contentWidth,
-        scrollHeight = (#items * 35) + 100,
-        listener = scrollListener
+        left = scrollViewLeft,
+        top = scrollViewTop,
+        width = scrollViewWidth,
+        height = scrollViewHeight,
+        scrollWidth = scrollViewWidth,
+        scrollHeight = (#items * 45) + 120,
+        isBounceEnabled = false
     })
     sceneGroup:insert(scrollView)
     
-    local itemHeight = 35
+    -- Add border around scrollView
+    local scrollBorder = display.newRect(sceneGroup, display.contentWidth * 0.5, scrollViewTop + (scrollViewHeight * 0.5), scrollViewWidth, scrollViewHeight)
+    scrollBorder:setFillColor(0, 0, 0, 0)
+    scrollBorder.stroke = 3
+    scrollBorder.strokeColor = {0.3, 0.3, 0.3}
+    
+    local itemHeight = 45
     
     if #items == 0 then
-        local emptyText = display.newText(scrollView, "Je winkelwagen is leeg", display.contentWidth * 0.5, 50, native.systemFont, 20)
+        local emptyText = display.newText(scrollView, "Je winkelwagen is leeg", scrollViewWidth * 0.5, 50, native.systemFont, 20)
         emptyText:setFillColor(0.5, 0.5, 0.5)
     else
         for i, item in ipairs(items) do
-            local y = 10 + (i - 1) * itemHeight
+            local y = 15 + (i - 1) * itemHeight
             
             -- Item container
-            local itemRect = display.newRect(scrollView, display.contentWidth * 0.5, y, display.contentWidth - 20, 30)
+            local itemRect = display.newRect(scrollView, scrollViewWidth * 0.5, y, scrollViewWidth - 20, 40)
             itemRect:setFillColor(0.95, 0.95, 1)
             itemRect.stroke = 1
             itemRect.strokeColor = {0.3, 0.3, 0.3}
@@ -74,19 +86,19 @@ function scene:create( event )
             nameText.anchorX = 0
             
             -- Item quantity
-            local quantityText = display.newText(scrollView, "x" .. item.quantity, display.contentWidth * 0.5, y - 5, native.systemFont, 16)
+            local quantityText = display.newText(scrollView, "x" .. item.quantity, scrollViewWidth * 0.5, y - 5, native.systemFont, 16)
             quantityText:setFillColor(0, 0, 0)
             quantityText.anchorX = 0.5
             
             -- Item price
-            local priceText = display.newText(scrollView, "€" .. string.format("%.2f", item.price * item.quantity), display.contentWidth - 20, y - 5, native.systemFont, 16)
+            local priceText = display.newText(scrollView, "€" .. string.format("%.2f", item.price * item.quantity), scrollViewWidth - 20, y - 5, native.systemFont, 16)
             priceText:setFillColor(0, 0, 0.8)
             priceText.anchorX = 1
             
             -- Remove button
-            local removeBtn = display.newRect(scrollView, display.contentWidth - 12, y + 8, 20, 20)
+            local removeBtn = display.newRect(scrollView, scrollViewWidth - 30, y + 8, 20, 20)
             removeBtn:setFillColor(1, 0, 0)
-            local removeText = display.newText(scrollView, "X", display.contentWidth - 12, y + 8, native.systemFont, 14)
+            local removeText = display.newText(scrollView, "X", scrollViewWidth - 30, y + 8, native.systemFont, 14)
             removeText:setFillColor(1, 1, 1)
             
             local itemId = item.id
@@ -101,7 +113,7 @@ function scene:create( event )
     -- Total section (at bottom of scroll)
     local totalY = (#items * itemHeight) + 50
     
-    local divider = display.newLine(scrollView, 10, totalY - 10, display.contentWidth - 10, totalY - 10)
+    local divider = display.newLine(scrollView, 10, totalY - 10, scrollViewWidth - 10, totalY - 10)
     divider:setColor(0.3, 0.3, 0.3)
     divider.width = 2
     
@@ -109,7 +121,7 @@ function scene:create( event )
     totalLabel:setFillColor(0.3, 0.2, 0.1)
     totalLabel.anchorX = 0
     
-    local totalPrice = display.newText(scrollView, "€" .. string.format("%.2f", cart:getTotal()), display.contentWidth - 20, totalY + 15, native.systemFont, 28)
+    local totalPrice = display.newText(scrollView, "€" .. string.format("%.2f", cart:getTotal()), scrollViewWidth - 20, totalY + 15, native.systemFont, 28)
     totalPrice:setFillColor(0.2, 0.8, 0.2)
     totalPrice.anchorX = 1
     
