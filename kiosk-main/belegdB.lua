@@ -33,6 +33,11 @@ end
 function scene:create( event )
     local sceneGroup = self.view
     
+    -- Background
+    local background = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight * 0.5, display.contentWidth, display.contentHeight)
+    background:setFillColor(1, 1, 1)
+    background:toBack()
+    
     -- Title
     local title = display.newText(sceneGroup, "Belegde Broodjes", display.contentWidth * 0.5, 20, native.systemFont, 30)
     title:setFillColor(0.9, 0.9, 0)

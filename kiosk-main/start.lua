@@ -12,6 +12,12 @@ end
 function scene:create( event )
 
     local sceneGroup = self.view
+    
+    -- Background
+    local background = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight * 0.5, display.contentWidth, display.contentHeight)
+    background:setFillColor(1, 1, 1)
+    background:toBack()
+    
     Begin = display.newText(sceneGroup, "Begin", display.contentWidth * 0.5, display.contentHeight * 0.5, native.systemFont, 40)
     Begin:addEventListener( "tap", gotocatogorien )
     
