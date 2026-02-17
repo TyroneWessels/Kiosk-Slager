@@ -35,7 +35,7 @@ function scene:create( event )
     
     -- Title
     local title = display.newText(sceneGroup, "Belegde Broodjes", display.contentWidth * 0.5, 20, native.systemFont, 30)
-    title:setFillColor(0.9, 0.9, 0.9)
+    title:setFillColor(0.9, 0.9, 0)
     
     -- Display products
     local startY = 60
