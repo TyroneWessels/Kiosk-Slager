@@ -77,7 +77,7 @@ function scene:create( event )
     
     -- Back button
     local terug = display.newText(sceneGroup, "Terug", display.contentWidth * 0.15, display.contentHeight - 50, native.systemFont, 18)
-    terug:setFillColor(0, 0, 0)
+    terug:setFillColor(1, 1, 1)
     terug:addEventListener("tap", gotocatogorien)
     
     -- Stop button
