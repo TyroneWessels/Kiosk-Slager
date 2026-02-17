@@ -7,7 +7,7 @@ local products = {
     { name = "Rosbief broodje", price = 6.50 },
     { name = "Gerookt vlees broodje", price = 6.00 },
     { name = "Salami broodje", price = 5.00 },
-    { name = "Mixte broodje", price = 6.50 },
+    { name = "Mixte broodje", price = 6.00 },
 }
 
 local function gotostart()
