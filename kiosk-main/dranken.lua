@@ -48,9 +48,8 @@ function scene:create( event )
     -- Display products
     local startY = 60
     local itemHeight = 60
-    local selectedButton = nil
     
-    for i, product in ipairs(products) do
+    for i, product in ipairs(products) {
         local y = startY + (i - 1) * itemHeight
         
         -- Product button
@@ -58,7 +57,6 @@ function scene:create( event )
         productBtn:setFillColor(1, 1, 1)
         productBtn.stroke = 2
         productBtn.strokeColor = {0, 0, 0}
-        productBtn.isSelected = false
         
         -- Product name
         local nameText = display.newText(sceneGroup, product.name, display.contentWidth * 0.15, y - 10, native.systemFont, 18)
@@ -74,17 +72,6 @@ function scene:create( event )
         local name = product.name
         local price = product.price
         productBtn:addEventListener("tap", function()
-            -- Deselect previous button
-            if selectedButton and selectedButton ~= productBtn then
-                selectedButton:setFillColor(0.9, 0.9, 0.9)
-                selectedButton.isSelected = false
-            end
-            
-            -- Select current button
-            productBtn:setFillColor(0.8, 1.0, 0.8)
-            productBtn.isSelected = true
-            selectedButton = productBtn
-            
             addToCart(name, price)
         end)
     end
