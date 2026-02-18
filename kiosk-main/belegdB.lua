@@ -89,7 +89,7 @@ function scene:create( event )
     local BelegdSalami = display.newImage(sceneGroup, "Foto's/Belegdsalami.png", display.contentWidth * 0.8, 240)
     BelegdSalami:scale(0.5, 0.5)
     local BelegdKroket = display.newImage(sceneGroup, "Foto's/Belegdkroket.png", display.contentWidth * 0.8, 300)
-    BelegdKroket:scale(0.5, 0.5)
+    BelegdKroket:scale(0.1, 0.1)
 
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
