@@ -78,14 +78,28 @@ function scene:create( event )
     -- Foto's
     local Soeptomaten = display.newImageRect(sceneGroup, "Foto's/Soeptomaten.png", display.contentWidth * 0.8, 60)
     Soeptomaten:scale(0.5, 0.5)
+    Soeptomaten.x = display.contentWidth * 0.8
+    Soeptomaten.y = 60
+
     local Soepchampignon = display.newImageRect(sceneGroup, "Foto's/Soepchampignon.png", display.contentWidth * 0.8, 120)
     Soepchampignon:scale(0.5, 0.5)
-    local Soepuien = display.newImageRect(sceneGroup, "Foto's/Soepuien.png", 170, 180)
+    Soepchampignon.x = display.contentWidth * 0.8
+    Soepchampignon.y = 120
+
+    local Soepuien = display.newImageRect(sceneGroup, "Foto's/Soepuien.png", display.contentWidth * 0.8, 180)
     Soepuien:scale(0.5, 0.5)
+    Soepuien.x = display.contentWidth * 0.8
+    Soepuien.y = 180
+
     local Soepgroente = display.newImageRect(sceneGroup, "Foto's/Soepgroente.png", display.contentWidth * 0.8, 240)
     Soepgroente:scale(0.5, 0.5)
+    Soepgroente.x = display.contentWidth * 0.8
+    Soepgroente.y = 240
+
     local Soeperwten = display.newImageRect(sceneGroup, "Foto's/Soeperwten.png", display.contentWidth * 0.8, 300)
     Soeperwten:scale(0.5, 0.5)
+    Soeperwten.x = display.contentWidth * 0.8
+    Soeperwten.y = 300
 
 
 
