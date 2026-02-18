@@ -74,7 +74,22 @@ function scene:create( event )
             addToCart(name, price)
         end)
     end
-    
+
+    -- Foto's
+    local Soeptomaten = display.newImageRect(sceneGroup, "Foto's/Soeptomaten.png", display.contentWidth * 0.8, 60)
+    Soeptomaten:scale(0.5, 0.5)
+    local Soepchampignon = display.newImageRect(sceneGroup, "Foto's/Soepchampignon.png", display.contentWidth * 0.8, 120)
+    Soepchampignon:scale(0.5, 0.5)
+    local Soepuien = display.newImageRect(sceneGroup, "Foto's/Soepuien.png", display.contentWidth * 0.8, 180)
+    Soepuien:scale(0.5, 0.5)
+    local Soepgroente = display.newImageRect(sceneGroup, "Foto's/Soepgroente.png", display.contentWidth * 0.8, 240)
+    Soepgroente:scale(0.5, 0.5)
+    local Soeperwten = display.newImageRect(sceneGroup, "Foto's/Soeperwten.png", display.contentWidth * 0.8, 300)
+    Soeperwten:scale(0.5, 0.5)
+
+
+
+
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     cartBtn:setFillColor(0.2, 0.7, 0.2)

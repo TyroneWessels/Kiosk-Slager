@@ -87,7 +87,7 @@ function scene:create( event )
     local Belegdmakreel = display.newImage(sceneGroup, "Foto's/Belegdmakreel.png", display.contentWidth * 0.8, 180)
     Belegdmakreel:scale(0.1, 0.1)
     local BelegdSalami = display.newImage(sceneGroup, "Foto's/Belegdsalami.png", display.contentWidth * 0.8, 240)
-    BelegdSalami:scale(0.25, 0.25)
+    BelegdSalami:scale(0.2, 0.2)
     local BelegdKroket = display.newImage(sceneGroup, "Foto's/Belegdkroket.png", display.contentWidth * 0.8, 300)
     BelegdKroket:scale(0.05, 0.05)
 
