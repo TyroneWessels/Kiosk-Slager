@@ -54,7 +54,7 @@ function scene:create( event )
         
         -- Product button
         local productBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, y, display.contentWidth - 20, 50)
-        productBtn:setFillColor(0.9, 0.9, 0.9)
+        productBtn:setFillColor(1, 1, 1)
         productBtn.stroke = 2
         productBtn.strokeColor = {0, 0, 0}
         productBtn.isSelected = false
