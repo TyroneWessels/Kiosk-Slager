@@ -77,7 +77,7 @@ function scene:create( event )
 
     -- Foto's
     local Soeptomaten = display.newImageRect(sceneGroup, "Foto's/Soeptomaten.png", display.contentWidth * 0.8, 60)
-    Soeptomaten:scale(1, 1)
+    Soeptomaten:scale(0,3, 0,8)
     Soeptomaten.x = display.contentWidth * 0.8
     Soeptomaten.y = 60
 
