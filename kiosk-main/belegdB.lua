@@ -44,8 +44,8 @@ function scene:create( event )
     local title = display.newText(sceneGroup, "Belegde Broodjes", display.contentWidth * 0.5, 20, native.systemFont, 30)
     title:setFillColor(0.3, 0.2, 0.1)
     
-    -- foto's
-    local Belegdkalkoen = display.newImage(sceneGroup, "Foto's/Belegdkalkoen.png", display.contentWidth * 0.8, 60, 100)
+    
+    
     
 
     -- Display products
@@ -78,6 +78,9 @@ function scene:create( event )
             addToCart(name, price)
         end)
     end
+    
+    -- foto's
+    local Belegdkalkoen = display.newImage(sceneGroup, "Foto's/Belegdkalkoen.png", display.contentWidth * 0.8, 60, 100)
     
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
