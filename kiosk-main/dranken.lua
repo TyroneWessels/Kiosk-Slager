@@ -73,9 +73,8 @@ function scene:create( event )
         local price = product.price
         productBtn:addEventListener("tap", function()
             addToCart(name, price)
-        end)
+        end)}
     end
-    }
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     cartBtn:setFillColor(0.2, 0.7, 0.2)
