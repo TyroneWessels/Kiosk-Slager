@@ -78,9 +78,13 @@ function scene:create( event )
             addToCart(name, price)
         end)
     end
-    
+
     -- foto's
-    local Belegdkalkoen = display.newImage(sceneGroup, "Foto's/Belegdkalkoen.png", display.contentWidth * 0.8, 60, 100)
+    local Belegdkalkoen = display.newImage(sceneGroup, "Foto's/Belegdkalkoen.png", display.contentWidth * 0.8, 60, 30)
+    local BelegdRosbief = display.newImage(sceneGroup, "Foto's/BelegdRosbief.png", display.contentWidth * 0.8, 120, 30)
+    local BeledbroodjeMakreel = display.newImage(sceneGroup, "Foto's/BeledbroodjeMakreel.png", display.contentWidth * 0.8, 180, 30)
+    local BelegdSalami = display.newImage(sceneGroup, "Foto's/BelegdSalami.png", display.contentWidth * 0.8, 240, 30)
+    local BelegdKroket = display.newImage(sceneGroup, "Foto's/BelegdKroket.png", display.contentWidth * 0.8, 300, 30)
     
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
