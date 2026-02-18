@@ -77,7 +77,7 @@ function scene:create( event )
             
             -- Item container (gecentreerd)
             local itemRect = display.newRect(scrollView, scrollViewWidth * 0.5, y, scrollViewWidth - 20, 40)
-            itemRect:setFillColor(0.95, 0.95, 1)
+            itemRect:setFillColor(1, 1, 1)
             itemRect.stroke = 1
             itemRect.strokeColor = {0.3, 0.3, 0.3}
             itemRect.anchorY = 0.5
