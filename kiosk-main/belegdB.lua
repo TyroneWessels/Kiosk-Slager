@@ -80,12 +80,17 @@ function scene:create( event )
     end
 
     -- foto's
-    local Belegdkalkoen = display.newImage(sceneGroup, "Foto's/Belegdkalkoen.png", display.contentWidth * 0.8, 60, 30, 30)
-    local BelegdRosbief = display.newImage(sceneGroup, "Foto's/Belegdrosbief.png", display.contentWidth * 0.8, 120, 30, 30)
-    local BeledbroodjeMakreel = display.newImage(sceneGroup, "Foto's/Beledmakreel.png", display.contentWidth * 0.8, 180, 30, 30)
-    local BelegdSalami = display.newImage(sceneGroup, "Foto's/Belegdsalami.png", display.contentWidth * 0.8, 240, 30, 30)
-    local BelegdKroket = display.newImage(sceneGroup, "Foto's/Belegdkroket.png", display.contentWidth * 0.8, 300, 30, 30)
-    
+    local Belegdkalkoen = display.newImage(sceneGroup, "Foto's/Belegdkalkoen.png", display.contentWidth * 0.8, 60)
+    Belegdkalkoen:scale(0.5, 0.5)
+    local BelegdRosbief = display.newImage(sceneGroup, "Foto's/Belegdrosbief.png", display.contentWidth * 0.8, 120)
+    BelegdRosbief:scale(0.5, 0.5)
+    local BeledbroodjeMakreel = display.newImage(sceneGroup, "Foto's/Beledmakreel.png", display.contentWidth * 0.8, 180)
+    BeledbroodjeMakreel:scale(0.5, 0.5)
+    local BelegdSalami = display.newImage(sceneGroup, "Foto's/Belegdsalami.png", display.contentWidth * 0.8, 240)
+    BelegdSalami:scale(0.5, 0.5)
+    local BelegdKroket = display.newImage(sceneGroup, "Foto's/Belegdkroket.png", display.contentWidth * 0.8, 300)
+    BelegdKroket:scale(0.5, 0.5)
+
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     cartBtn:setFillColor(0.2, 0.7, 0.2)
