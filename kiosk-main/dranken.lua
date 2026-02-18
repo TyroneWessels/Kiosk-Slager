@@ -49,7 +49,7 @@ function scene:create( event )
     local startY = 60
     local itemHeight = 60
     
-    for i, product in ipairs(products) {
+    for i, product in ipairs(products)
         local y = startY + (i - 1) * itemHeight
         
         -- Product button
@@ -73,7 +73,7 @@ function scene:create( event )
         local price = product.price
         productBtn:addEventListener("tap", function()
             addToCart(name, price)
-        end)}
+        end)
     end
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
