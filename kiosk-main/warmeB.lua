@@ -116,20 +116,6 @@ function scene:create( event )
         end
     end
 
-    --foto
-    local Warmkipcorn = display.newImage(sceneGroup, "Foto's/Warmkipcorn.png", display.contentWidth * 0.8, 60)
-    Warmkipcorn:scale(0.1, 0.1)
-    local Warmvlees = display.newImage(sceneGroup, "Foto's/Warmvlees.png", display.contentWidth * 0.8, 120)
-    Warmvlees:scale(0.1, 0.1)
-    local Warmham = display.newImage(sceneGroup, "Foto's/Warmham.png", display.contentWidth * 0.8, 180)
-    Warmham:scale(0.1, 0.1)
-    local Warmkaas = display.newImage(sceneGroup, "Foto's/Warmkaas.png", display.contentWidth * 0.8, 240)
-    Warmkaas:scale(0.1, 0.1)
-    local Warmgezond = display.newImage(sceneGroup, "Foto's/Warmgezond.png", display.contentWidth * 0.8, 240)
-    Warmgezond:scale(0.1, 0.1)
-    local Warmspeciaal = display.newImage(sceneGroup, "Foto's/Warmspeciaal.png", display.contentWidth * 0.8, 300)
-    Warmspeciaal:scale(0.1, 0.1)
-
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     cartBtn:setFillColor(0.2, 0.7, 0.2)
