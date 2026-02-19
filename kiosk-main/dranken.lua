@@ -75,6 +75,21 @@ function scene:create( event )
             addToCart(name, price)
         end)
     end
+
+    -- Foto
+    local Drankenwater = display.newImage(sceneGroup, "Foto's/Drankenwater.png", display.contentWidth * 0.8, 60)
+    Drankenwater:scale(0.25, 0.25)
+    local Drankencola = display.newImage(sceneGroup, "Foto's/Drankencola.png", display.contentWidth * 0.8, 120)
+    Drankencola:scale(0.5, 0.5)
+    local Drankenfanta = display.newImage(sceneGroup, "Foto's/Drankenfanta.png", display.contentWidth * 0.8, 180)
+    Drankenfanta:scale(0.1, 0.1)
+    local Drankensprite = display.newImage(sceneGroup, "Foto's/Drankensprite.png", display.contentWidth * 0.8, 240)
+    Drankensprite:scale(0.2, 0.2)
+    local Drankenappelsap = display.newImage(sceneGroup, "Foto's/Drankenappelsap.png", display.contentWidth * 0.8, 300)
+    Drankenappelsap:scale(0.05, 0.05)
+    local Drankenkoffie = display.newImage(sceneGroup, "Foto's/Drankenkoffie.png", display.contentWidth * 0.8, 360)
+    Drankenkoffie:scale(0.05, 0.05)
+
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     cartBtn:setFillColor(0.2, 0.7, 0.2)
