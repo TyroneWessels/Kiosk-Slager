@@ -92,12 +92,12 @@ function scene:create( event )
     Soepuien.y = 180
 
     local Soepgroente = display.newImageRect(sceneGroup, "Foto's/Soepgroente.png", display.contentWidth * 0.8, 240)
-    Soepgroente:scale(0.25, 0.25)
+    Soepgroente:scale(0.2, 0.2)
     Soepgroente.x = display.contentWidth * 0.8
     Soepgroente.y = 240
 
     local Soeperwten = display.newImageRect(sceneGroup, "Foto's/Soeperwten.png", display.contentWidth * 0.8, 300)
-    Soeperwten:scale(0.2, 0.2)
+    Soeperwten:scale(0.15, 0.15)
     Soeperwten.x = display.contentWidth * 0.8
     Soeperwten.y = 300
 
