@@ -27,9 +27,10 @@ local function gotoAfrekenen()
     composer.gotoScene( "afrekenen" )
 end
 
-local function addToCart(name, price)
-    cart:addItem(name, price, "belegdB")
-    native.showAlert("Toegevoegd", name .. " is aan je winkelwagen toegevoegd!", {"OK"})
+local function addToCart(name, price, quantity)
+    quantity = quantity or 1
+    cart:addItem(name, price, "belegdB", quantity)
+    native.showAlert("Toegevoegd", quantity .. "x " .. name .. " is aan je winkelwagen toegevoegd!", {"OK"})
 end
 
 function scene:create( event )
@@ -51,45 +52,72 @@ function scene:create( event )
     -- Display products
     local startY = 60
     local itemHeight = 60
+    local targetSize = 40  -- Target size for images to fit in 50px button
+    
+    -- Foto names for each product
+    local fotoNames = {"Belegdkalkoen", "Belegdrosbief", "Belegdmakreel", "Belegdsalami", "Belegdkroket"}
     
     for i, product in ipairs(products) do
         local y = startY + (i - 1) * itemHeight
+        local quantity = 1
         
         -- Product button
-        local productBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, y, display.contentWidth - 20, 50)
+        local productBtn = display.newRect(sceneGroup, display.contentWidth * 0.35, y, display.contentWidth * 0.5, 50)
         productBtn:setFillColor(1, 1, 1)
         productBtn.stroke = 2
         productBtn.strokeColor = {0, 0, 0}
         
         -- Product name
-        local nameText = display.newText(sceneGroup, product.name, display.contentWidth * 0.15, y - 10, native.systemFont, 18)
+        local nameText = display.newText(sceneGroup, product.name, display.contentWidth * 0.12, y - 10, native.systemFont, 18)
         nameText:setFillColor(0, 0, 0)
         nameText.anchorX = 0
         
         -- Price
-        local priceText = display.newText(sceneGroup, "€" .. string.format("%.2f", product.price), display.contentWidth * 0.15, y + 10, native.systemFont, 16)
+        local priceText = display.newText(sceneGroup, "€" .. string.format("%.2f", product.price), display.contentWidth * 0.12, y + 10, native.systemFont, 16)
         priceText:setFillColor(0, 0, 0.8)
         priceText.anchorX = 0
+        
+        -- Quantity selector
+        local qtyText = display.newText(sceneGroup, tostring(quantity), display.contentWidth * 0.67, y, native.systemFont, 18)
+        qtyText:setFillColor(0, 0, 0)
+        
+        local minusBtn = display.newRect(sceneGroup, display.contentWidth * 0.61, y, 25, 25)
+        minusBtn:setFillColor(0.9, 0.3, 0.3)
+        local minusText = display.newText(sceneGroup, "-", display.contentWidth * 0.61, y, native.systemFont, 20)
+        minusText:setFillColor(1, 1, 1)
+        
+        local plusBtn = display.newRect(sceneGroup, display.contentWidth * 0.73, y, 25, 25)
+        plusBtn:setFillColor(0.3, 0.7, 0.3)
+        local plusText = display.newText(sceneGroup, "+", display.contentWidth * 0.73, y, native.systemFont, 20)
+        plusText:setFillColor(1, 1, 1)
+        
+        -- Plus/minus handlers
+        minusBtn:addEventListener("tap", function()
+            quantity = math.max(1, quantity - 1)
+            qtyText.text = tostring(quantity)
+        end)
+        
+        plusBtn:addEventListener("tap", function()
+            quantity = math.min(10, quantity + 1)
+            qtyText.text = tostring(quantity)
+        end)
         
         -- Add to cart functionality
         local name = product.name
         local price = product.price
         productBtn:addEventListener("tap", function()
-            addToCart(name, price)
+            addToCart(name, price, quantity)
         end)
+        
+        -- Foto next to item - scale dynamically to fit in box
+        local foto = display.newImage(sceneGroup, "Foto's/" .. fotoNames[i] .. ".png", display.contentWidth * 0.88, y)
+        if foto then
+            local scaleH = targetSize / foto.height
+            local scaleW = targetSize / foto.width
+            local scale = math.min(scaleH, scaleW)
+            foto:scale(scale, scale)
+        end
     end
-
-    -- foto's
-    local Belegdkalkoen = display.newImage(sceneGroup, "Foto's/Belegdkalkoen.png", display.contentWidth * 0.8, 60)
-    Belegdkalkoen:scale(0.25, 0.25)
-    local BelegdRosbief = display.newImage(sceneGroup, "Foto's/Belegdrosbief.png", display.contentWidth * 0.8, 120)
-    BelegdRosbief:scale(0.5, 0.5)
-    local Belegdmakreel = display.newImage(sceneGroup, "Foto's/Belegdmakreel.png", display.contentWidth * 0.8, 180)
-    Belegdmakreel:scale(0.1, 0.1)
-    local BelegdSalami = display.newImage(sceneGroup, "Foto's/Belegdsalami.png", display.contentWidth * 0.8, 240)
-    BelegdSalami:scale(0.2, 0.2)
-    local BelegdKroket = display.newImage(sceneGroup, "Foto's/Belegdkroket.png", display.contentWidth * 0.8, 300)
-    BelegdKroket:scale(0.05, 0.05)
 
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)

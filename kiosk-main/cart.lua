@@ -6,14 +6,17 @@ local cart = {}
 -- Store all items in the cart
 cart.items = {}
 
--- Add item to cart
-function cart:addItem(name, price, category)
-    table.insert(self.items, {
-        name = name,
-        price = price,
-        category = category,
-        id = #self.items + 1
-    })
+-- Add item to cart with quantity
+function cart:addItem(name, price, category, quantity)
+    quantity = quantity or 1
+    for q = 1, quantity do
+        table.insert(self.items, {
+            name = name,
+            price = price,
+            category = category,
+            id = #self.items + 1
+        })
+    end
 end
 
 -- Remove item from cart by id
