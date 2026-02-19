@@ -49,10 +49,10 @@ function scene:create( event )
     -- Display products
     local startY = 60
     local itemHeight = 60
-    local targetSize = 40  -- Target size for images to fit in 50px button
     
-    -- Foto names for each product
+    -- Foto names and individual sizes for each product
     local fotoNames = {"Warmkipcorn", "Warmvlees", "Warmham", "Warmkaas", "Belegdkroket", "Warmspeciaal"}
+    local fotoSizes = {50, 55, 55, 40, 55, 40}  -- Individual target sizes per product
     
     -- Popup group (will be shown when item is tapped)
     local popupGroup = nil
@@ -165,6 +165,7 @@ function scene:create( event )
         -- Foto next to item - scale dynamically to fit in box
         local foto = display.newImage(sceneGroup, "Foto's/" .. fotoNames[i] .. ".png", display.contentWidth * 0.8, y)
         if foto then
+            local targetSize = fotoSizes[i] or 40
             local scaleH = targetSize / foto.height
             local scaleW = targetSize / foto.width
             local scale = math.min(scaleH, scaleW)
