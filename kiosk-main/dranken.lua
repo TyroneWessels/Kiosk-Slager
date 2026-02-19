@@ -49,7 +49,11 @@ function scene:create( event )
     local startY = 60
     local itemHeight = 60
     
-    for i, product in ipairs(products)
+    -- Foto scales for each product
+    local fotoScales = {0.25, 0.5, 0.1, 0.2, 0.25, 0.25}
+    local fotoNames = {"Drankenwater", "Drankencola", "Drankenfanta", "Drankensprite", "Drankenappelsap", "Drankenkoffie"}
+    
+    for i, product in ipairs(products) do
         local y = startY + (i - 1) * itemHeight
         
         -- Product button
@@ -74,21 +78,11 @@ function scene:create( event )
         productBtn:addEventListener("tap", function()
             addToCart(name, price)
         end)
+        
+        -- Foto next to item
+        local foto = display.newImage(sceneGroup, "Foto's/" .. fotoNames[i] .. ".png", display.contentWidth * 0.8, y)
+        foto:scale(fotoScales[i], fotoScales[i])
     end
-
-    -- Foto
-    local Drankenwater = display.newImage(sceneGroup, "Foto's/Drankenwater.png", display.contentWidth * 0.8, 60)
-    Drankenwater:scale(0.25, 0.25)
-    local Drankencola = display.newImage(sceneGroup, "Foto's/Drankencola.png", display.contentWidth * 0.8, 120)
-    Drankencola:scale(0.5, 0.5)
-    local Drankenfanta = display.newImage(sceneGroup, "Foto's/Drankenfanta.png", display.contentWidth * 0.8, 180)
-    Drankenfanta:scale(0.1, 0.1)
-    local Drankensprite = display.newImage(sceneGroup, "Foto's/Drankensprite.png", display.contentWidth * 0.8, 240)
-    Drankensprite:scale(0.2, 0.2)
-    local Drankenappelsap = display.newImage(sceneGroup, "Foto's/Drankenappelsap.png", display.contentWidth * 0.8, 300)
-    Drankenappelsap:scale(0.05, 0.05)
-    local Drankenkoffie = display.newImage(sceneGroup, "Foto's/Drankenkoffie.png", display.contentWidth * 0.8, 360)
-    Drankenkoffie:scale(0.05, 0.05)
 
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
