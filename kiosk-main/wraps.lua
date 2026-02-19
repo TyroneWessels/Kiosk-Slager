@@ -75,6 +75,10 @@ function scene:create( event )
         end)
     end
     
+    --foto
+    local Wrapkip = display.newImageRect(sceneGroup, "images/Wrapkip.png", display.contentWidth * 0.8, 60)
+
+
     -- Cart button
     local cartBtn = display.newRect(sceneGroup, display.contentWidth * 0.5, display.contentHeight - 50, 100, 40)
     cartBtn:setFillColor(0.2, 0.7, 0.2)
