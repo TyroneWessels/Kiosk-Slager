@@ -7,7 +7,7 @@ local products = {
     { name = "Vlees broodje", price = 6.00 },
     { name = "Ham broodje", price = 5.00 },
     { name = "Kaas broodje", price = 4.50 },
-    { name = "Gezond broodje", price = 5.75 },
+    { name = "broodje kroket", price = 6.00 },
     { name = "Speciaal broodje", price = 7.00 },
 }
 
@@ -52,7 +52,7 @@ function scene:create( event )
     local targetSize = 40  -- Target size for images to fit in 50px button
     
     -- Foto names for each product
-    local fotoNames = {"Warmkipcorn", "Warmvlees", "Warmham", "Warmkaas", "Warmgezond", "Warmspeciaal"}
+    local fotoNames = {"Warmkipcorn", "Warmvlees", "Warmham", "Warmkaas", "Belegdkroket", "Warmspeciaal"}
     
     -- Popup group (will be shown when item is tapped)
     local popupGroup = nil
