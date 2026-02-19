@@ -48,9 +48,9 @@ function scene:create( event )
     -- Display products
     local startY = 60
     local itemHeight = 60
+    local targetHeight = 40  -- Target height for all images to fit in 50px button
     
-    -- Foto scales for each product
-    local fotoScales = {0.25, 0.5, 0.1, 0.2, 0.25, 0.25}
+    -- Foto names for each product
     local fotoNames = {"Drankenwater", "Drankencola", "Drankenfanta", "Drankensprite", "Drankenappelsap", "Drankenkoffie"}
     
     for i, product in ipairs(products) do
@@ -79,9 +79,12 @@ function scene:create( event )
             addToCart(name, price)
         end)
         
-        -- Foto next to item
+        -- Foto next to item - scale dynamically to fit in box
         local foto = display.newImage(sceneGroup, "Foto's/" .. fotoNames[i] .. ".png", display.contentWidth * 0.8, y)
-        foto:scale(fotoScales[i], fotoScales[i])
+        if foto then
+            local scale = targetHeight / foto.height
+            foto:scale(scale, scale)
+        end
     end
 
     -- Cart button
